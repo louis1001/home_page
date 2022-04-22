@@ -12,9 +12,11 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
+      { rel: "preconnect", href: "https://fonts.gstatic.com" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Amaranth:wght@700&family=Source+Code+Pro:ital,wght@0,300;1,400&display=swap" },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
