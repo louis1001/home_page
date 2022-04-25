@@ -1,7 +1,12 @@
 <template>
   <div>
     <h1>Blog listing...</h1>
-    {{ articles }}
+
+    <ul id="blogs-list">
+      <li class="blog-item" v-for="blog in articles" :key="blog.slug">
+        <a :href="slug + blog.slug">{{ blog.title }}</a>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -14,7 +19,14 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     })
 
-    return {articles}
+    return {articles }
+  },
+  data() {
+    let slug = this.$route.path
+    if (!slug.endsWith('/')) slug += "/"
+    return {
+      slug
+    }
   }
 }
 </script>
