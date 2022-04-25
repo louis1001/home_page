@@ -9,11 +9,6 @@
 <script>
 export default {
   async asyncData({ $content, params, error, redirect }) {
-    if (!params.slug || params.slug == "/") {
-      redirect(404, "/blog/listing")
-      return {}
-    }
-
     const article = await $content('articles', params.slug)
     .fetch()
     .catch((err) => {

@@ -2,7 +2,13 @@
   <div>
     <header>
       <h1>
-        <img id="main-picture" src="@/static/imgs/profile.jpg" alt="" />
+        <img
+          id="main-picture"
+          width="80px"
+          height="80px"
+          src="@/static/imgs/profile.jpg"
+          alt=""
+        />
         <div id="heading-text">
           <!-- <div class="faded">Curriculum Vitae</div> -->
           <span>Luis Alberto González Rodríguez</span>
