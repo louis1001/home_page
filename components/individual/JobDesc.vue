@@ -57,4 +57,10 @@
   #job-desc
     position: relative
     margin: 0
+    margin-block-end: 3rem
+
+@media screen and (max-width: 300px)
+  #job-desc
+    max-width: unset
+    position: relative
 </style>

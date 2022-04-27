@@ -25,17 +25,23 @@
   max-width: max(700px, 50vw)
   text-align: right
 
-
   &-container
     display: flex
     justify-content: flex-end
     flex-wrap: wrap
     max-width: 100%
 
-
   &-container li
     list-style: none
     text-align: center
     /* padding: 0 20px; */
     min-width: 200px
+
+@media screen and (max-width: 625px)
+  #contact
+    max-width: unset
+    // text-align: center
+    &-container
+      display: flex
+      justify-content: space-around
 </style>

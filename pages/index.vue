@@ -42,8 +42,8 @@ body
   color: var(--main-col)
   font-family: 'Source Code Pro', monospace
   font-weight: bold
-  font-size: 1.2rem
   margin: 0
+  overflow-x: hidden
 
 #content-container
   max-width: 1400px
@@ -77,4 +77,8 @@ h4
   font-weight: lighter
   margin: 10px 0
   font-style: italic
+
+@media screen and (max-width: 720px)
+  main
+    padding: 0 10px
 </style>

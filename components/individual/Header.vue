@@ -41,4 +41,14 @@ header img
 @media screen and (max-width: 720px)
   header
     min-height: unset
+
+  #career
+    text-align: right
+    padding-right: .5em
+
+@media screen and (max-width: 370px)
+  header img
+    max-width: 8rem
+    max-height: 8rem
+    aspect-ratio: 1
 </style>

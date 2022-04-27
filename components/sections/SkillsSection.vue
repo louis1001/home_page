@@ -82,14 +82,11 @@
   list-style: none
   margin: 20px
 
-
   & img .skill *
     vertical-align: middle
 
-
   & span
     display: none
-
 
   &-icon
     height: 3em
@@ -102,4 +99,11 @@
 
 #related-skills ul
   flex-direction: row-reverse
+@media screen and (max-width: 625px)
+  #skills
+    // text-align: center
+    max-width: unset
+
+  #skills ul
+    justify-content: space-around
 </style>
