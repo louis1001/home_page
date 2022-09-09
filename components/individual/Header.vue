@@ -41,6 +41,7 @@ header img
 @media screen and (max-width: 720px)
   header
     min-height: unset
+    padding-top: 50px
 
   #career
     text-align: right

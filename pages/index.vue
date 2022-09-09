@@ -1,5 +1,6 @@
 <template>
   <div id="content-container">
+    <NavigationBar />
     <Header />
     <main>
       <JobDesc />
@@ -13,6 +14,7 @@
 
 <script>
 import Vue from "vue"
+import NavigationBar from "@/components/individual/NavigationBar.vue"
 import Header from "@/components/individual/Header.vue"
 import JobDesc from "@/components/individual/JobDesc.vue"
 import ContactSection from "@/components/sections/ContactSection.vue"
@@ -21,7 +23,7 @@ import Footer from "@/components/individual/Footer.vue"
 
 export default Vue.extend({
   name: "IndexPage",
-  components: {Header, JobDesc, ContactSection, SkillsSection, Footer}})
+  components: {Header, JobDesc, ContactSection, SkillsSection, Footer, NavigationBar}})
 </script>
 
 <style lang="sass">

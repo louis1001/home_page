@@ -16,7 +16,7 @@
 <style lang="sass" scoped>
 #job-desc
   position: fixed
-  top: 10px
+  top: 50px
   font-size: 0.9rem
   max-width: 285px
   background: rgb(27, 27, 30)
