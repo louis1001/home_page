@@ -1,5 +1,9 @@
 # main_page
 
+# Before Runnning!
+An error running on my macbook m1. Fixed running:
+`export NODE_OPTIONS=--openssl-legacy-provider`
+
 ## Build Setup
 
 ```bash
