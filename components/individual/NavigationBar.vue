@@ -3,7 +3,7 @@
     <nav>
       <a id="my-name" href="/">louis1001</a>
       <ul>
-        <li><a href="/">Main</a></li>
+        <li id="main-link"><a href="/">Main</a></li>
         <li><a href="/cv">CV</a></li>
         <li><a href="/work/innotest">My work</a></li>
         <li><a href="/demo">Demos</a></li>
@@ -37,6 +37,9 @@ nav
     gap: 2em
     margin-inline: 1em
 
+  #main-link
+    display: none
+
   #my-name
     font-family: 'Amaranth', sans-serif
     color: var(--heading-col)
@@ -49,4 +52,7 @@ nav
 @media screen and (max-width: 340px)
   #my-name
     display: none
+
+  nav ul #main-link
+    display: block
 </style>
