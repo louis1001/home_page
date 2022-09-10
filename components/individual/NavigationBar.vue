@@ -1,14 +1,21 @@
 <template>
-  <nav>
-    <ul>
-      <li><a href="/">Main</a></li>
-      <li><a href="/cv">CV</a></li>
-      <li><a href="/demo">Demos</a></li>
-    </ul>
-  </nav>
+  <div id="actual-container">
+    <nav>
+      <ul>
+        <li><a href="/">Main</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/work/innotest">My work</a></li>
+        <li><a href="/demo">Demos</a></li>
+      </ul>
+    </nav>
+    <div id="spacer"></div>
+  </div>
 </template>
 
 <style lang="sass" scoped>
+#actual-container
+  height: 50px
+
 nav
   position: fixed
   left: 0

@@ -9,6 +9,8 @@
 </template>
 
 <style lang="sass" scoped>
+@import '@/static/styles/font_styles.sass'
+
 header
   display: grid
   align-content: center
@@ -21,15 +23,10 @@ header
 
 h1
   font-size: 5rem
-  font-family: 'Amaranth', sans-serif
-  margin: .1em
-  color: var(--heading-col)
+  margin: .1em 0
 
 h2
   font-size: 1.8rem
-  font-family: 'Lucida Sans', sans-serif
-  font-weight: 500
-  color: var(--sub-heading-col)
   text-align: left
 
 header img
@@ -41,7 +38,6 @@ header img
 @media screen and (max-width: 720px)
   header
     min-height: unset
-    padding-top: 50px
 
   #career
     text-align: right
