@@ -42,4 +42,11 @@ nav
     color: var(--heading-col)
     padding-left: 10px
 
+@media screen and (max-width: 720px)
+  nav ul
+    gap: 1em
+
+@media screen and (max-width: 340px)
+  #my-name
+    display: none
 </style>

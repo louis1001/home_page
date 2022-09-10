@@ -83,6 +83,7 @@ h2
 #apps-container
   margin: 20px 0
   padding: 0 10px
+  line-height: 2
 
   img
     transition: transform 0.2s ease-in-out
@@ -93,4 +94,10 @@ h2
   p
     margin-left: 1em
     line-height: 1.2
+
+@media screen and (max-width: 720px)
+  #apps-container
+    img
+      width: 50px
+      height: 50px
 </style>
