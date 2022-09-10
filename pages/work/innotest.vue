@@ -36,7 +36,17 @@
 
       <section id="design-to-code">
         <h2>From Design to Code</h2>
-        <p>One of my favorite tasks while programming is to take a <strong>design</strong> from someone who knows what they're doing, and translating it into code, be it <em>CSS</em>, <em>SwiftUI</em> or the creative design platform <a target="_blank" href="https://p5js.org"><em>P5.js</em></a>.</p>
+        <p>One of my <em>favorite</em> tasks while programming is to take a <strong>design</strong> from someone who knows what they're doing and translating it into code, be it <em>SwiftUI</em>, <em>CSS</em> or the creative design platform <a target="_blank" href="https://p5js.org"><em>P5.js</em></a>. Here are some examples of that in my work with InnoTest.</p>
+
+        <div class="work-item">
+          <h3>A Video to CSS</h3>
+          <p>Originally proposed as a video, due to the need for more resolution I decided to recreate it as a responsive CSS animation. Once embedded in a <code>WKWebView</code>, the result is seamless:</p>
+          <div class="work-item-illustration">
+            <video id="comparativa-video" src="/videos/innotest/comparativa.mp4" autoplay muted loop>Video not supported</video>
+            <img class="illustration-arrow" src="/imgs/right_arrow.svg"/>
+            <video id="comparativa-implementada" src="/videos/innotest/comparativa-implementada.mp4" autoplay muted loop>Video not supported</video>
+          </div>
+        </div>
       </section>
     </div>
   </div>
@@ -73,7 +83,10 @@ header
     margin-bottom: 0
 
 h2
-  margin-bottom: .8em
+  margin-bottom: .5em
+
+h3
+  margin-bottom: .5em
 
 #the-apps
   text-align: center
@@ -95,9 +108,48 @@ h2
     margin-left: 1em
     line-height: 1.2
 
+.work-item
+  margin: 4em 0
+  --arrow-width: 80px
+
+  .work-item-illustration
+    display: flex
+    justify-content: space-around
+    padding: 20px 0
+
+    .illustration-arrow
+      width: var(--arrow-width)
+      filter: invert(100%)
+
+  video
+    width: max(30%, 300px)
+    max-width: calc(50% - var(--arrow-width))
+
 @media screen and (max-width: 720px)
   #apps-container
     img
       width: 50px
       height: 50px
+
+  .work-item
+    .work-item-illustration
+      display: block
+      text-align: center
+
+      *
+        display: block
+        margin: 0 auto
+        max-width: 100%
+
+      .illustration-arrow
+        transform: rotate(90deg)
+        padding: 30px 0
+        max-width: 20%
+
+
+// @media screen and (max-width: 340px)
+//   #comparativa-video
+//     max-width: unset
+//     padding: 0 20px
+//     margin: 0 auto
 </style>
