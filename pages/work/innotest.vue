@@ -42,9 +42,9 @@
           <h3>A Video to CSS</h3>
           <p>Originally proposed as a video, due to the need for more resolution I decided to recreate it as a responsive CSS animation. Once embedded in a <code>WKWebView</code>, the result is seamless:</p>
           <div class="work-item-illustration">
-            <video id="comparativa-video" src="/videos/innotest/comparativa.mp4" autoplay muted loop>Video not supported</video>
+            <video id="comparativa-video" src="/videos/innotest/comparativa.mp4" autoplay muted loop playsinline>Video not supported</video>
             <img class="illustration-arrow" src="/imgs/right_arrow.svg"/>
-            <video id="comparativa-implementada" src="/videos/innotest/comparativa-implementada.mp4" autoplay muted loop>Video not supported</video>
+            <video id="comparativa-implementada" src="/videos/innotest/comparativa-implementada.mp4" autoplay muted loop playsinline>Video not supported</video>
           </div>
         </div>
       </section>
