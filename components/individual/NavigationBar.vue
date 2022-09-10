@@ -1,6 +1,7 @@
 <template>
   <div id="actual-container">
     <nav>
+      <a id="my-name" href="/">louis1001</a>
       <ul>
         <li><a href="/">Main</a></li>
         <li><a href="/cv">CV</a></li>
@@ -21,6 +22,9 @@ nav
   left: 0
   right: 0
   height: 3em
+  display: flex
+  justify-content: space-between
+  align-items: center
   backdrop-filter: blur(4px)
   z-index: 9999
 
@@ -32,4 +36,10 @@ nav
     height: 50px
     gap: 2em
     margin-inline: 1em
+
+  #my-name
+    font-family: 'Amaranth', sans-serif
+    color: var(--heading-col)
+    padding-left: 10px
+
 </style>
