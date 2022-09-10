@@ -16,9 +16,9 @@
 
 </script>
 
-<style>
+<style scoped>
 main {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: grid;
   place-items: center;
 }

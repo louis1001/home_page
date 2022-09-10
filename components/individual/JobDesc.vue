@@ -16,6 +16,7 @@
 <style lang="sass" scoped>
 #job-desc
   position: fixed
+  left: 10px
   top: 50px
   font-size: 0.9rem
   max-width: 285px
@@ -55,12 +56,10 @@
 
 @media screen and (max-width: 720px)
   #job-desc
-    position: relative
-    margin: 0
-    margin-block-end: 3rem
+    position: unset
+    margin: 0 auto 0 0
 
 @media screen and (max-width: 300px)
   #job-desc
     max-width: unset
-    position: relative
 </style>
