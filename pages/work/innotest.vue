@@ -40,7 +40,7 @@
 
         <div class="work-item">
           <h3>A Video to CSS</h3>
-          <p>Originally proposed as a video, due to the need for more resolution I decided to recreate it as a responsive CSS animation. Once embedded in a <code>WKWebView</code>, the result is seamless:</p>
+          <p>It was originally proposed as a video, but due to the need for more resolution I decided to recreate it as a responsive CSS animation. Once embedded in a <code>WKWebView</code>, the result is seamless:</p>
           <div class="work-item-illustration">
             <video id="comparativa-video" autoplay muted loop playsinline>
               <source src="/videos/innotest/comparativa.webm" type="video/webm">
@@ -53,6 +53,24 @@
             <video id="comparativa-implementada" autoplay muted loop playsinline>
               <source src="/videos/innotest/comparativa-implementada.webm" type="video/webm">
               <source src="/videos/innotest/comparativa-implementada.mp4" type="video/mp4">
+              Video not supported
+            </video>
+          </div>
+        </div>
+
+        <div class="work-item">
+          <h3>The heart of the app - Navigation Bar</h3>
+          <p>Inspired by Material's <code>FloatingActionButton</code>, this navigation bar is the main interaction in the app.
+          At first we used Google's library but it became really restrictive, specially when trying to get closer to out intended design.
+          So I remade it at first with custom <code>UIKit</code> views and eventually as a very flexible <code>SwiftUI</code> view.
+          The result is, in my opinion, a piece of UI that closely conveys the designer's vision and works just as intended.</p>
+
+          <div class="work-item-illustration">
+            <img src="/imgs/innotest/examples/home_navigation.svg" alt="Home navigation bar">
+            <img class="illustration-arrow" src="/imgs/right_arrow.svg"/>
+            <video id="home-navigation" autoplay muted loop playsinline>
+              <source src="/videos/innotest/home_navigation.webm" type="video/webm">
+              <source src="/videos/innotest/home_navigation.mp4" type="video/mp4">
               Video not supported
             </video>
           </div>
@@ -97,6 +115,7 @@ h2
 
 h3
   margin-bottom: .5em
+  padding-left: .4em
 
 #the-apps
   text-align: center
@@ -131,7 +150,7 @@ h3
       width: var(--arrow-width)
       filter: invert(100%)
 
-  video
+  video img
     width: max(30%, 300px)
     max-width: calc(50% - var(--arrow-width))
 
