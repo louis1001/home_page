@@ -84,7 +84,12 @@
 import NavigationBar from "~/components/individual/NavigationBar.vue";
 
 export default {
-  components: { NavigationBar}
+  components: { NavigationBar},
+  head() {
+    return {
+      title: "Work at InnoTest"
+    }
+  }
 }
 
 </script>

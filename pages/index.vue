@@ -23,7 +23,13 @@ import Footer from "@/components/individual/Footer.vue"
 
 export default Vue.extend({
   name: "IndexPage",
-  components: {Header, JobDesc, ContactSection, SkillsSection, Footer, NavigationBar}})
+  components: {Header, JobDesc, ContactSection, SkillsSection, Footer, NavigationBar},
+  head() {
+    return {
+      title: "louis1001"
+    }
+  }
+})
 </script>
 
 <style lang="sass">
