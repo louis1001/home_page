@@ -59,7 +59,7 @@
         <ul>
           <li class="experiences-item">
             <h4>
-              (2021-2022) iOS Developer at
+              (2021-) iOS Developer at
               <a href="https://regxi.com" target="_blank">Regxi</a>
             </h4>
 
@@ -158,15 +158,19 @@
             <span class="hability-value">
               <ul>
                 <li>
+                  <b>Swift</b>
+                </li>
+
+                <li>
                   <b>C/C++</b>
                 </li>
 
                 <li>
-                  <b>Python</b>
+                  <b>Rust</b>
                 </li>
 
                 <li>
-                  <b>Swift</b>
+                  <b>Python</b>
                 </li>
 
                 <li>
