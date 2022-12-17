@@ -39,7 +39,7 @@ await page.setContent(finalContent, { waitUntil: 'domcontentloaded' })
 
 await page.pdf({
   path: 'artifacts/luis-gonzalez.pdf',
-  margin: { top: '.25in', right: '.5in', bottom: '.25in', left: '.5in' },
+  margin: { top: '0', right: '0', bottom: '0', left: '0' },
   printBackground: true,
   format: 'A4'
 })
