@@ -208,7 +208,7 @@ p
   line-height: 1.4em
 
 #exporting
-  position: absolute
+  position: fixed
   bottom: 0
   left: 0
   display: flex
