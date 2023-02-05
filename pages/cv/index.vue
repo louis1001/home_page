@@ -42,7 +42,7 @@
         <div class="experience-item">
           <h3>Regxi, iOS developer <span class="detail">(outsourcing company)</span></h3>
           <h4>
-            InnoTest <span class="detail">(consumer)</span>, Mobile Developer
+            InnoTest <span class="detail">(client)</span>, Mobile Developer
             <span class="timespan">— February, 2021 - Present</span>
           </h4>
           <p>
