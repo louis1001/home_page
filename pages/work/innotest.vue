@@ -8,7 +8,7 @@
       </header>
 
       <section id="the-apps">
-        <p> For <a href="https://innotest.es" target="_blank">InnoTest®</a> I've worked on this 7 (very similar) apps.</p>
+        <p> For <a href="https://innotest.es" target="_blank">InnoTest®</a> I've worked on this 7 apps.</p>
         <div id="apps-container">
           <a target="_blank" href="https://apps.apple.com/es/app/innotest-guardia-civil-2022/id1303395100">
             <img src="/imgs/innotest/icons/logo_gc.svg"  width="80" height="80"  alt="guardia civil logo">
@@ -42,19 +42,23 @@
           <h3>A Video to CSS</h3>
           <p>It was originally proposed as a video, but due to the need for more resolution I decided to recreate it as a responsive CSS animation. Once embedded in a <code>WKWebView</code>, the result is seamless:</p>
           <div class="work-item-illustration">
-            <video id="comparativa-video" autoplay muted loop playsinline>
-              <source src="/videos/innotest/comparativa.webm" type="video/webm">
-              <source src="/videos/innotest/comparativa.mp4" type="video/mp4">
-              Video not supported
-            </video>
+            <div class="original">
+              <video id="comparativa-video"  autoplay muted loop playsinline width="468" height="640">
+                <source src="/videos/innotest/comparativa.webm" type="video/webm">
+                <source src="/videos/innotest/comparativa.mp4" type="video/mp4">
+                Video not supported
+              </video>
+            </div>
 
-            <img class="illustration-arrow" src="/imgs/right_arrow.svg"/>
+            <img class="illustration-arrow" alt="" src="/imgs/right_arrow.svg"/>
 
-            <video id="comparativa-implementada" autoplay muted loop playsinline>
-              <source src="/videos/innotest/comparativa-implementada.webm" type="video/webm">
-              <source src="/videos/innotest/comparativa-implementada.mp4" type="video/mp4">
-              Video not supported
-            </video>
+            <div class="mine">
+              <video id="comparativa-implementada" width="592" height="1280" autoplay muted loop playsinline>
+                <source src="/videos/innotest/comparativa-implementada.webm" type="video/webm">
+                <source src="/videos/innotest/comparativa-implementada.mp4" type="video/mp4">
+                Video not supported
+              </video>
+            </div>
           </div>
         </div>
 
@@ -66,13 +70,17 @@
           The result is, in my opinion, a piece of UI that closely conveys the designer's vision and works just as intended.</p>
 
           <div class="work-item-illustration">
-            <img src="/imgs/innotest/examples/home_navigation.svg" alt="Home navigation bar">
+            <div class="original">
+              <img src="/imgs/innotest/examples/home_navigation.svg" width="454" height="314.167" alt="Home navigation bar">
+            </div>
             <img class="illustration-arrow" src="/imgs/right_arrow.svg"/>
-            <video id="home-navigation" autoplay muted loop playsinline>
-              <source src="/videos/innotest/home_navigation.webm" type="video/webm">
-              <source src="/videos/innotest/home_navigation.mp4" type="video/mp4">
-              Video not supported
-            </video>
+            <div class="mine">
+              <video id="home-navigation" width="382" height="266" autoplay muted loop playsinline>
+                <source src="/videos/innotest/home_navigation.webm" type="video/webm">
+                <source src="/videos/innotest/home_navigation.mp4" type="video/mp4">
+                Video not supported
+              </video>
+            </div>
           </div>
         </div>
       </section>
@@ -99,9 +107,6 @@ export default {
 @import '@/static/styles/basics.sass'
 
 @import '@/static/styles/font_styles.sass'
-
-body
-  min-height: 1000vh
 
 #main-container
   margin: 0 auto
@@ -144,20 +149,36 @@ h3
 
 .work-item
   margin: 4em 0
-  --arrow-width: 80px
+  --arrow-width: 60px
 
   .work-item-illustration
-    display: flex
+    display: grid
+    align-items: center
+    grid-template-columns: minmax(0, 1fr) var(--arrow-width) minmax(0, 1fr)
     justify-content: space-around
     padding: 20px 0
+    gap: 1em
 
     .illustration-arrow
       width: var(--arrow-width)
       filter: invert(100%)
 
-  video img
-    width: max(30%, 300px)
-    max-width: calc(50% - var(--arrow-width))
+  .original, .mine
+    text-align: center
+    width: 100%
+    height: 100%
+
+    background: #fff1
+    border-radius: 5pt
+
+    display: grid
+    align-items: center
+    justify-content: center
+
+    &>*
+      max-width: 100%
+      max-height: min(90vh, 500px)
+
 
 @media screen and (max-width: 720px)
   #apps-container
