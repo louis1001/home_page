@@ -2,13 +2,16 @@
   <section id="job-desc">
     <div class="job-sec">
       <strong>Currently:</strong>
-      <span id="job-title">Mobile Developer (iOS)</span>
+      <span id="job-title">iOS Developer</span>
     </div>
     <div class="job-sec">
       <strong>At:</strong>
       <a href="https://regxi.com" target="_blank" id="job-place">
         <img src="imgs/regxi.png" width="20" height="20" />Regxi
       </a>
+    </div>
+    <div class="job-sec">
+      <span class="highlighted">Open to work!</span>
     </div>
   </section>
 </template>
@@ -30,12 +33,11 @@
     width: auto
     text-align: left
 
-  & img
+  img
     vertical-align: middle
 
-  & a,
-
-  & span
+  a,
+  span
     display: inline
     font-size: 1.2em
     color: var(--sec-heading-col)
@@ -43,17 +45,28 @@
     text-decoration-style: dashed
     text-decoration-color: var(--sub-heading-col)
 
-  & a:hover
+  a:hover
     text-decoration-style: wavy
 
-  & strong
+  strong
     display: block
     font-size: 1em
     color: var(--sec-heading-darker-col)
 
-  & .job-sec:last-child
-    margin-top: 15px
+  .job-sec
+    margin-top: 10px
 
+    &:first-child
+      margin-top: 0
+
+  .highlighted
+    display: block
+    text-align: right
+    color: var(--main-col)
+
+  #job-title
+    display: block
+    min-width: 230px
 @media screen and (max-width: 720px)
   #job-desc
     position: unset
