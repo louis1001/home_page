@@ -36,8 +36,12 @@ header img
   animation: 240s 20s infinite linear rotate-slowly
 
 @media screen and (max-width: 720px)
+  html, body
+    font-size: 10pt
   header
     min-height: unset
+    margin-block: 2em
+    padding-inline: 1em
 
   #career
     text-align: right
@@ -48,4 +52,7 @@ header img
     max-width: 8rem
     max-height: 8rem
     aspect-ratio: 1
+
+  header h1
+    font-size: 3rem
 </style>

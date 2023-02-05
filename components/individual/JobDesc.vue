@@ -57,7 +57,7 @@
 @media screen and (max-width: 720px)
   #job-desc
     position: unset
-    margin: 0 auto 0 0
+    margin: 1em auto 6em 0
 
 @media screen and (max-width: 300px)
   #job-desc

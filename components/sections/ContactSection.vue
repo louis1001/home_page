@@ -9,7 +9,7 @@
       </li>
       <li>
         <h4>Phone</h4>
-        <span>+505 82322324</span>
+        <a href="tel:+50582322324">+505 82322324</a>
       </li>
       <li>
         <h4>Github</h4>
@@ -37,6 +37,9 @@
     /* padding: 0 20px; */
     min-width: 200px
 
+  a
+    color: var(--main-col)
+
 @media screen and (max-width: 625px)
   #contact
     max-width: unset
@@ -44,4 +47,9 @@
     &-container
       display: flex
       justify-content: space-around
+      margin-top: 10px
+
+      li
+        min-width: unset
+        margin-inline: .5em
 </style>

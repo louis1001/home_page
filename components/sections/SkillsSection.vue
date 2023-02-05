@@ -3,47 +3,7 @@
     <h3>Development Skills</h3>
     <ul>
       <!-- Skills! -->
-      <li class="skill">
-        <img
-          class="skill-icon"
-          width="20"
-          height="20"
-          alt="js-icon"
-          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/javascript.svg"
-        />
-        <span class="skill-name">JavaScript</span>
-      </li>
-      <li class="skill">
-        <img
-          class="skill-icon"
-          width="20"
-          height="20"
-          alt="css-icon"
-          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/css3.svg"
-        />
-        <span class="skill-name">CSS</span>
-      </li>
-      <li class="skill">
-        <img
-          class="skill-icon"
-          width="20"
-          height="20"
-          alt="cpp-icon"
-          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/cplusplus.svg"
-        />
-        <span class="skill-name">C++</span>
-      </li>
-      <li class="skill">
-        <img
-          class="skill-icon"
-          width="20"
-          height="20"
-          alt="py-icon"
-          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/python.svg"
-        />
-        <span class="skill-name">Python</span>
-      </li>
-      <li class="skill">
+      <li class="skill" title="Swift">
         <img
           class="skill-icon"
           width="20"
@@ -53,7 +13,57 @@
         />
         <span class="skill-name">Swift</span>
       </li>
-      <li class="skill">
+      <li class="skill" title="Rust">
+        <img
+          class="skill-icon"
+          width="20"
+          height="20"
+          alt="rust-icon"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/rust.svg"
+        />
+        <span class="skill-name">Rust</span>
+      </li>
+      <li class="skill" title="C++">
+        <img
+          class="skill-icon"
+          width="20"
+          height="20"
+          alt="cpp-icon"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/cplusplus.svg"
+        />
+        <span class="skill-name">C++</span>
+      </li>
+      <li class="skill" title="Python">
+        <img
+          class="skill-icon"
+          width="20"
+          height="20"
+          alt="py-icon"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/python.svg"
+        />
+        <span class="skill-name">Python</span>
+      </li>
+      <li class="skill" title="JavaScript">
+        <img
+          class="skill-icon"
+          width="20"
+          height="20"
+          alt="js-icon"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/javascript.svg"
+        />
+        <span class="skill-name">JavaScript</span>
+      </li>
+      <li class="skill" title="CSS">
+        <img
+          class="skill-icon"
+          width="20"
+          height="20"
+          alt="css-icon"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/css3.svg"
+        />
+        <span class="skill-name">CSS</span>
+      </li>
+      <li class="skill" title="VueJS">
         <img
           class="skill-icon"
           width="20"
