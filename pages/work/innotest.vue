@@ -95,7 +95,19 @@ export default {
   components: { NavigationBar},
   head() {
     return {
-      title: "Work at InnoTest"
+      title: "Work at InnoTest",
+      meta: [
+        {
+          hid: 'title',
+          name: 'title',
+          content: 'louis1001 - InnoTest'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'What I did at InnoTest'
+        }
+      ]
     }
   }
 }

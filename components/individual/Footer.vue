@@ -1,5 +1,5 @@
 <template>
-  <footer><small>&copy; Copyright 2021, louis1001</small></footer>
+  <footer><small>&copy; Copyright 2021-2023, louis1001</small></footer>
 </template>
 
 <style lang="sass" scoped>

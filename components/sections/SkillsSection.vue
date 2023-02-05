@@ -8,7 +8,7 @@
           class="skill-icon"
           width="20"
           height="20"
-          alt="swift-icon"
+          alt=""
           src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/swift.svg"
         />
         <span class="skill-name">Swift</span>
@@ -18,7 +18,7 @@
           class="skill-icon"
           width="20"
           height="20"
-          alt="rust-icon"
+          alt=""
           src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/rust.svg"
         />
         <span class="skill-name">Rust</span>
@@ -28,7 +28,7 @@
           class="skill-icon"
           width="20"
           height="20"
-          alt="cpp-icon"
+          alt=""
           src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/cplusplus.svg"
         />
         <span class="skill-name">C++</span>
@@ -38,7 +38,7 @@
           class="skill-icon"
           width="20"
           height="20"
-          alt="py-icon"
+          alt=""
           src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/python.svg"
         />
         <span class="skill-name">Python</span>
@@ -48,7 +48,7 @@
           class="skill-icon"
           width="20"
           height="20"
-          alt="js-icon"
+          alt=""
           src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/javascript.svg"
         />
         <span class="skill-name">JavaScript</span>
@@ -58,7 +58,7 @@
           class="skill-icon"
           width="20"
           height="20"
-          alt="css-icon"
+          alt=""
           src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/css3.svg"
         />
         <span class="skill-name">CSS</span>
@@ -68,7 +68,7 @@
           class="skill-icon"
           width="20"
           height="20"
-          alt="sql-icon"
+          alt=""
           src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/vue-dot-js.svg"
         />
         <span class="skill-name">VueJS</span>

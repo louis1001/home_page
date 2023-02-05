@@ -26,7 +26,19 @@ export default Vue.extend({
   components: {Header, JobDesc, ContactSection, SkillsSection, Footer, NavigationBar},
   head() {
     return {
-      title: "louis1001"
+      title: "louis1001",
+      meta: [
+        {
+          name: "title",
+          hid: "title",
+          content: "louis1001 - iOS and Web devloper"
+        },
+        {
+          name: "description",
+          hid: "description",
+          content: "An experienced web and iOS developer, focusing on SwiftUI."
+        }
+      ]
     }
   }
 })

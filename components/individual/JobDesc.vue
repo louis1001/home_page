@@ -7,7 +7,7 @@
     <div class="job-sec">
       <strong>At:</strong>
       <a href="https://regxi.com" target="_blank" id="job-place">
-        <img src="imgs/regxi.png" width="20" height="20" />Regxi
+        <nuxt-img format="webp" placeholder quality="90" alt="" src="imgs/regxi.png" width="20" height="20" />Regxi
       </a>
     </div>
     <div class="job-sec">

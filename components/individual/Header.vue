@@ -1,9 +1,9 @@
 <template>
   <header>
-    <img width="200" height="200" src="imgs/profile.jpg" alt="MiFoto" />
+    <nuxt-img format="webp" placeholder quality="90" width="200" height="200" src="imgs/profile.jpg" alt="MiFoto" />
     <div>
       <h1 class="main-name">Luis González</h1>
-      <h2 id="career">Programmer and Web Developer</h2>
+      <h2 id="career">iOS and Web Developer</h2>
     </div>
   </header>
 </template>

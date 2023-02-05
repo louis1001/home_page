@@ -13,6 +13,11 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'louis1001'
+      }
     ],
     link: [
       { rel: "preconnect", href: "https://fonts.gstatic.com" },
@@ -36,7 +41,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    "@nuxtjs/svg"
+    "@nuxtjs/svg",
+    '@nuxt/image'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
