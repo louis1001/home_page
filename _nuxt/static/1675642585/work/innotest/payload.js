@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/work/innotest", {data:[{_img:{}}],fetch:{},mutations:void 0});
