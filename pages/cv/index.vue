@@ -19,15 +19,15 @@
         <p>Somoto, Nicaragua (GMT-6)</p>
         <p>(+505) 8232 2324</p>
         <p><a href="mailto:louis1001dev@gmail.com">louis1001dev@gmail.com</a></p>
-        <p><a href="http://linkedin.com/in/louis1001">http://linkedin.com/in/louis1001</a></p>
-        <p><a href="http://louis1001.dev">http://louis1001.dev</a></p>
+        <p><a href="https://linkedin.com/in/louis1001">http://linkedin.com/in/louis1001</a></p>
+        <p><a href="https://louis1001.dev">http://louis1001.dev</a></p>
       </div>
     </header>
 
     <main>
       <section id="headline">
         <p>
-          Self-driven mobile developer, with 2 years of experience in developing iOS applications used by a large number
+          Self-driven mobile developer, with 3 years of experience in developing iOS applications used by a large number
           of users. I've worked with <code class="technical">UIKit</code> and <code class="technical">SwiftUI</code> as
           UI frameworks, and my web background helped me build a strong base when it comes to design. I'm proud to say,
           to this day there hasn't been an interface I couldn't develop, though I'm looking for a challenge. Focused on
@@ -177,6 +177,17 @@
           </p>
         </div>
       </section>
+      <section id="education">
+        <h2>Aditional</h2>
+        <p>I wanted to add that this document lists my abilities relating to mobile development,
+          but I enjoy low level/logic based development as well. I mentioned my current fixation on
+          developing programming languages, I recently made a Virtual Machine in
+          <code class="technical">C</code> from scratch.
+          I love working with <code class="technical">C++</code>, <code class="technical">Rust</code>,
+          <code class="technical">NodeJS</code> and <code class="technical">Python</code> to build
+          algorithms and learn about computing.
+        </p>
+      </section>
     </main>
   </div>
 </template>
@@ -198,14 +209,14 @@ export default {
 </script>
 
 <style lang="sass">
-$titles-outset: .4rem
+$titles-outset: .2rem
 
 // This add a little breathing room to the text
 *
-  letter-spacing: 0.02em
+  letter-spacing: 0.0em
 
 p
-  line-height: 1.4em
+  line-height: 1.24em
 
 #exporting
   position: fixed
@@ -238,12 +249,12 @@ p, div, section
   margin: 0
 
 section
-  margin: 2em 0
+  margin: 1.3em 0
   padding-left: $titles-outset
 
 #my-cv
-  font-family: 'Arial', sans-serif
-  --main-color: #b9694a
+  font-family: 'Verdana', sans-serif
+  --main-color: rgb(83, 49, 114)
   max-width: 530pt
   margin: 0 auto
 
@@ -254,7 +265,7 @@ em
 h1, h2, h3, h4, h5
   color: var(--main-color)
   margin: 0
-  margin-bottom: .25em
+  margin-bottom: .2em
 
   .detail
     font-weight: normal
@@ -273,15 +284,15 @@ h3, h4, h5
 
 ul
   margin-block: 0
-  padding-left: 3em
+  padding-left: 3rem
 
   li
-    margin-bottom: .5em
+    margin-bottom: .5rem
 
 code.technical
-  padding-inline: .3em
+  padding-inline: .3rem
   background: #eee
-  border-radius: .3em
+  border-radius: .3rem
   font-family: Courier, monospace
   white-space: nowrap
 
@@ -356,17 +367,18 @@ header
   #my-cv
     padding: 0 2rem
 
+$link-color: rgb(45, 166, 242)
 a
-  color: #105f9b
+  color: $link-color
 @media print
   #exporting
     display: none
 
   a, a:visited
-    color: #105f9b
+    color: $link-color
 
   #my-cv
-    margin: .25in .5in .25in .5in
+    margin: .1in .2in .1in .2in
     max-width: unset
 
   body, html
@@ -374,5 +386,5 @@ a
     padding: 0
 
   ul>li
-    margin-bottom: .1em
+    margin-bottom: 0em
 </style>
