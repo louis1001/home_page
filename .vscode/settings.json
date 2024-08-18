@@ -1,8 +1,5 @@
 {
-    "liveServer.settings.port": 5501,
-    "spellright.language": [],
-    "spellright.documentTypes": [
-        "latex",
-        "plaintext"
-    ]
+    "svelte.plugin.svelte.compilerWarnings": {
+        "css_unused_selector": "ignore"
+    }
 }
