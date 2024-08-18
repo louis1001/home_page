@@ -7,3 +7,7 @@ import JobDesc from "$lib/components/home/job_desc.svelte";
     <Header/>
     <JobDesc/>
 </div>
+
+<svelte:head>
+    <title>louis1001 - Home</title>
+</svelte:head>

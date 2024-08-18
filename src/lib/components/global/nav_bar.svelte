@@ -4,7 +4,7 @@
         <ul>
             <li id="main-link"><a href="/">Main</a></li>
             <li><a href="/cv">CV</a></li>
-            <li><a href="/work/innotest">My work</a></li>
+            <!-- <li><a href="/work/innotest">My work</a></li> -->
             <li><a href="/demo">Demos</a></li>
         </ul>
     </section>
