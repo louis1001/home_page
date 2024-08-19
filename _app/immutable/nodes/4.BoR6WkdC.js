@@ -1,0 +1,1 @@
+import{a as t,t as s}from"../chunks/disclose-version.Blr3xN2m.js";var r=s(`<div><h1>Design Demos</h1> <section><p><a href="https://mockups.louis1001.dev"><strong>Design Mockups</strong></a> - Where I try to mimic another site's design.</p></section> <hr> <pre>Placeholder index. To be designed later</pre></div>`);function n(e){var o=r();t(e,o)}export{n as component};
