@@ -1,6 +1,6 @@
-import { languageDefinitions } from './languages'
+import { languageDefinitions, type Language } from './languages'
 
-export default function highlight(code, language) {
+export default function highlight(code: string, language: string) {
   let definition = languageDefinitions[language]
   if (!definition) {
     return code

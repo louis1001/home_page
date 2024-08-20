@@ -1,4 +1,7 @@
-export let languageDefinitions = {
+export type Rule = { classes: string[], patterns: RegExp[]}
+export type Language = { rules: Rule[] }
+
+export let languageDefinitions: {[name: string]: Language} = {
   odo: {
     rules: [
       {
