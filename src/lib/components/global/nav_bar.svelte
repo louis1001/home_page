@@ -6,6 +6,7 @@
             <li><a href="/cv">CV</a></li>
             <!-- <li><a href="/work/innotest">My work</a></li> -->
             <li><a href="/demo">Demos</a></li>
+            <li><a href="/interests">Interests</a></li>
         </ul>
     </section>
 </nav>

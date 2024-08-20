@@ -195,6 +195,13 @@
 <style lang='sass'>
 $titles-outset: .2rem
 
+:root
+  --background-col: rgb(19, 19, 22)
+  --main-col: rgb(219, 151, 95)
+  --sub-heading-col: #bbb
+  --sec-heading-darker-col: rgb(71, 120, 183)
+  --link-col: rgb(100, 123, 224)
+
 // This add a little breathing room to the text
 *
   letter-spacing: 0.05em
@@ -290,6 +297,10 @@ $header-overflow: 2rem
 header
   display: flex
   justify-content: space-between
+  border-bottom: 4px solid var(--main-color)
+  margin: 0 calc($header-overflow * -1)
+  padding: 0 $header-overflow
+  padding-bottom: .7em
 
   h1, p
     margin: 0
@@ -301,12 +312,6 @@ header
 
     p
         padding: 0
-
-  border-bottom: 4px solid var(--main-color)
-
-  margin: 0 calc($header-overflow * -1)
-  padding: 0 $header-overflow
-  padding-bottom: .7em
 
 .timespan
   font-weight: normal
@@ -381,7 +386,7 @@ a
 
   ul>li
     margin-bottom: 0em
-  
+
   .technical
     font-family: monospace
 </style>
