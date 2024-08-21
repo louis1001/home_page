@@ -39,7 +39,7 @@ header img
 
     box-shadow: 0 .5px 4px 1px #fff3
 
-    animation: 240s 20s infinite linear rotate-slowly
+    // animation: 240s 20s infinite linear rotate-slowly
 
 @media screen and (max-width: 720px)
     html, body
@@ -62,10 +62,10 @@ header img
     header h1
         font-size: 3rem
 
-@keyframes rotate-slowly
-    0%
-        transform: rotate(0deg)
+// @keyframes rotate-slowly
+//     0%
+//         transform: rotate(0deg)
 
-    100%
-        transform: rotate(360deg)
+//     100%
+//         transform: rotate(360deg)
 </style>
