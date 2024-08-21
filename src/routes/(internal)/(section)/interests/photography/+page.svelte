@@ -1,14 +1,52 @@
-<script>
-import { onMount } from "svelte"
-// @ts-ignore
-import BiggerPicture from "bigger-picture/svelte";
+<script lang="ts">
+// @ts-nocheck
+import BiggerPicture from "bigger-picture";
 import "bigger-picture/scss";
 
-onMount(() => {
-  const bp = BiggerPicture({
+let previewUrls = $state([] as any[]);
+
+const imageModules = import.meta.glob(
+  '$lib/assets/photos/*.{jpeg,jpg}',
+  {
+    query: {
+      enhanced: true
+    }
+  }
+)
+
+let bp
+
+$effect(async () => {
+  let result = []
+  for (let entry in imageModules) {
+    let module = imageModules[entry]
+
+    let imageModule = await module()
+
+    result.push({
+      // @ts-ignore
+      fullImage: imageModule.default.img,
+      // @ts-ignore
+      enhanced: imageModule.default
+    })
+  }
+  previewUrls = result
+  
+  bp = BiggerPicture({
     target: document.body
   });
 })
+
+function openGallery(e: Event) {
+  e.preventDefault();
+
+  let imageLinks = document.querySelectorAll("#photos .image-link")
+
+  bp.open({
+    items: imageLinks,
+    el: e.currentTarget
+  })
+}
 </script>
 
 <h1>Photography</h1>
@@ -22,4 +60,55 @@ onMount(() => {
 
 <p>Now that I have it, here are my experiments.</p>
 
-<section id="photos"></section>
+<section id="photos">
+  <div>
+    {#each previewUrls as obj}
+    <a
+      class="image-link"
+      href={obj.fullImage.src}
+      onclick={openGallery}
+      target="_blank"
+      data-img={obj.enhanced.sources.jpeg}
+      data-height={obj.fullImage.h}
+      data-width={obj.fullImage.w}
+    >
+      <enhanced:img src={obj.enhanced} alt="some alt text" sizes="(max-width:2160px) 800px, (max-width:1920px) 600px, (max-width:768px) 200px" />
+    </a>
+    {/each}
+  </div>
+</section>
+
+<style lang='sass'>
+#photos
+  --layout-gaps: 1rem
+  column-count: 4
+  column-gap: var(--layout-gaps)
+  justify-content: center
+  padding-inline: 2rem
+
+#photos img
+  width: 100%
+  height: auto
+  object-fit: contain
+  padding-bottom: var(--layout-gaps)
+
+  transition: .3s transform
+  cursor: pointer
+
+  &:hover
+    transform: translateY(5px) scale(0.99)
+
+@media screen and (max-width: 1250px)
+  #photos
+    column-count: 3
+
+@media screen and (max-width: 900px)
+  #photos
+    column-count: 2
+    padding-inline: .2rem
+
+@media screen and (max-width: 580px)
+  #photos
+    column-count: 1
+
+</style>

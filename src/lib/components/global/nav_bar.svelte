@@ -24,7 +24,7 @@ nav
   justify-content: space-between
   align-items: center
   backdrop-filter: blur(4px)
-  z-index: 9999
+  z-index: 998
 
   ul
     max-width: 1500px
