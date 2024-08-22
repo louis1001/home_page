@@ -61,54 +61,61 @@ function openGallery(e: Event) {
 <p>Now that I have it, here are my experiments.</p>
 
 <section id="photos">
-  <div>
-    {#each previewUrls as obj}
-    <a
-      class="image-link"
-      href={obj.fullImage.src}
-      onclick={openGallery}
-      target="_blank"
-      data-img={obj.enhanced.sources.jpeg}
-      data-height={obj.fullImage.h}
-      data-width={obj.fullImage.w}
-    >
-      <enhanced:img src={obj.enhanced} alt="some alt text" sizes="(max-width:2160px) 800px, (max-width:1920px) 600px, (max-width:768px) 200px" />
-    </a>
-    {/each}
-  </div>
+  {#each previewUrls as obj}
+  <a
+    class="image-link"
+    href={obj.fullImage.src}
+    onclick={openGallery}
+    target="_blank"
+    data-img={obj.enhanced.sources.jpeg}
+    data-height={obj.fullImage.h}
+    data-width={obj.fullImage.w}
+  >
+    <enhanced:img src={obj.enhanced} alt="some alt text" sizes="(max-width:2160px) 800px, (max-width:1920px) 600px, (max-width:768px) 200px" />
+  </a>
+  {/each}
 </section>
 
 <style lang='sass'>
 #photos
-  --layout-gaps: 1rem
-  column-count: 4
-  column-gap: var(--layout-gaps)
-  justify-content: center
+  --layout-gaps: .8rem
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: var(--layout-gaps)
   padding-inline: 2rem
 
 #photos img
   width: 100%
   height: auto
-  object-fit: contain
-  padding-bottom: var(--layout-gaps)
+  aspect-ratio: 1 / 1
 
-  transition: .3s transform
+  object-fit: cover
+
+  transition: .1s ease-in-out transform
   cursor: pointer
 
+  // Polaroid effect
+  box-sizing: border-box
+  background: white
+  border-color: var(--main-col)
+
   &:hover
-    transform: translateY(5px) scale(0.99)
+    transform: scale(1.05)
+  
+  &:active
+    transform: scale(0.9)
 
 @media screen and (max-width: 1250px)
   #photos
-    column-count: 3
+    grid-template-columns: repeat(3, 1fr)
 
 @media screen and (max-width: 900px)
   #photos
-    column-count: 2
+    grid-template-columns: repeat(2, 1fr)
     padding-inline: .2rem
 
 @media screen and (max-width: 580px)
   #photos
-    column-count: 1
+    grid-template-columns: repeat(1, 1fr)
 
 </style>
