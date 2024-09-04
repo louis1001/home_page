@@ -15,7 +15,7 @@
     left: 0
     z-index: -99999
     pointer-events: none
-    opacity: .3
+    opacity: 1
     mix-blend-mode: multiply
 
     canvas

@@ -1,3 +1,4 @@
+// @ts-ignore
 import p5 from 'p5?client'
 
 function commonSketch(p: p5, setup: (isReduced: boolean)=>number|void) {
@@ -18,12 +19,19 @@ function commonSketch(p: p5, setup: (isReduced: boolean)=>number|void) {
         for(let i = 0; i < repetitions; i++) p.draw()
     }
 
+    let debounceResizeActionId: number|null = null
+
     p.windowResized = () => {
-        p.resizeCanvas(p.windowWidth, p.windowHeight)
+        if (debounceResizeActionId !== null) {
+            clearTimeout(debounceResizeActionId)
+        }
 
-        const repetitions = setup(isReduced) ?? 0
+        debounceResizeActionId = setTimeout(() => {
+            p.resizeCanvas(p.windowWidth, p.windowHeight)
+            const repetitions = setup(isReduced) ?? 0
 
-        for(let i = 0; i < repetitions; i++) p.draw()
+            for(let i = 0; i < repetitions; i++) p.draw()
+        }, 300)
     }
 }
 
@@ -37,6 +45,8 @@ function scribbledLines(p: p5) {
 
         if (reduced) {
             return 500
+        } else {
+            return 200
         }
     })
 
@@ -72,10 +82,11 @@ function scribbledLines(p: p5) {
 
 function bubbleDots(p: p5) {
     commonSketch(p, (reduced)=>{
-        for (let i = 0; i < 100; i++) p.draw()
 
         if (reduced) {
-            return 50
+            return 150
+        } else {
+            return 100
         }
     })
 
