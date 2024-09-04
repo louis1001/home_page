@@ -5,7 +5,7 @@
   </div>
   <div class="job-sec">
     <strong>At:</strong>
-    <a href="https://regxi.com" target="_blank" id="job-place">
+    <a href="https://applaudo.com" target="_blank" id="job-place">
       <enhanced:img
         alt=""
         src="/static/site-images/applaudo_logo.png"
