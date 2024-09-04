@@ -5,4 +5,10 @@
 
 <ul>
   <li><a href="/interests/photography">📷 Photography</a></li>
+  <li><a href="/interests/web_projects">🌐 Web Projects</a></li>
 </ul>
+
+<style lang="sass">
+ul
+  line-height: 2rem
+</style>
