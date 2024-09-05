@@ -1,1 +1,0 @@
-import{L as o,h as _}from"./runtime.DR9MUfrK.js";function c(r,s,f,A){f=f==null?null:f+"";var i=r.__attributes??(r.__attributes={});_&&(i[s]=r.getAttribute(s),s==="src"||s==="href"||s==="srcset")||i[s]!==(i[s]=f)&&(s==="loading"&&(r[o]=f),f===null?r.removeAttribute(s):r.setAttribute(s,f))}export{c as s};
