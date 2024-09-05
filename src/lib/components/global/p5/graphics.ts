@@ -102,9 +102,27 @@ function bubbleDots(p: p5) {
     }
 }
 
+function bubbleSquares(p: p5) {
+    commonSketch(p, (isReduced) => {
+        return isReduced ? 150 : 10
+    })
+
+    p.draw = () => {
+        p.noStroke()
+        p.fill(p.random(100, 255))
+
+        const x = p.random(0, p.width)
+        const y = p.random(0, p.height)
+        const sz = p.random(p.width * 0.01, p.width * 0.08)
+
+        p.rect(x, y, sz, sz)
+    }
+}
+
 const sketches = [
     scribbledLines,
-    bubbleDots
+    bubbleDots,
+    bubbleSquares
 ]
 
 let sketch: p5|null = null
