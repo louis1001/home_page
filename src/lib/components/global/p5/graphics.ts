@@ -119,10 +119,35 @@ function bubbleSquares(p: p5) {
     }
 }
 
+function mouseFollow(p: p5) {
+    commonSketch(p, (isReduced) => {
+        if (!isReduced) {
+            p.frameRate(20)
+        }
+        
+        return isReduced ? 50 : 1
+    })
+
+    p.draw = () => {
+        p.noStroke()
+        p.fill(p.random(100, 255))
+
+        const variation = 0.05
+
+        const sz = p.random(variation * 0.2, p.width * variation * 0.8)
+
+        const x = p.mouseX + p.random(-p.width * variation, p.width * variation)
+        const y = p.mouseY + p.random(-p.height * variation, p.height * variation)
+
+        p.circle(x, y, sz)
+    }
+}
+
 const sketches = [
-    scribbledLines,
-    bubbleDots,
-    bubbleSquares
+    // scribbledLines,
+    // bubbleDots,
+    // bubbleSquares,
+    mouseFollow
 ]
 
 let sketch: p5|null = null
