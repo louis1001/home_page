@@ -144,9 +144,9 @@ function mouseFollow(p: p5) {
 }
 
 const sketches = [
-    // scribbledLines,
-    // bubbleDots,
-    // bubbleSquares,
+    scribbledLines,
+    bubbleDots,
+    bubbleSquares,
     mouseFollow
 ]
 
