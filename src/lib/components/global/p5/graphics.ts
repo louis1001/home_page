@@ -1,6 +1,7 @@
 // @ts-ignore
 import p5 from 'p5?client'
 
+// A common setup function for all sketches
 function commonSketch(p: p5, setup: (isReduced: boolean)=>number|void) {
     // @ts-ignore
     const isReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
@@ -35,6 +36,7 @@ function commonSketch(p: p5, setup: (isReduced: boolean)=>number|void) {
     }
 }
 
+// Different sketch implementations
 function scribbledLines(p: p5) {
     let lastPosition: any
     commonSketch(p, (reduced) => {
@@ -80,6 +82,7 @@ function scribbledLines(p: p5) {
     }
 }
 
+// Bubble sketches
 function bubbleDots(p: p5) {
     commonSketch(p, (reduced)=>{
 
@@ -102,6 +105,7 @@ function bubbleDots(p: p5) {
     }
 }
 
+// Bubble squares
 function bubbleSquares(p: p5) {
     commonSketch(p, (isReduced) => {
         return isReduced ? 150 : 10
@@ -119,6 +123,7 @@ function bubbleSquares(p: p5) {
     }
 }
 
+// Mouse follow sketch
 function mouseFollow(p: p5) {
     commonSketch(p, (isReduced) => {
         if (!isReduced) {
@@ -128,13 +133,22 @@ function mouseFollow(p: p5) {
         return isReduced ? 50 : 1
     })
 
+    let staleForXFrames = 0
+
     p.draw = () => {
+        if (p.mouseX === p.pmouseX && p.mouseY === p.pmouseY) {
+            staleForXFrames++
+        } else {
+            staleForXFrames = 0
+        }
+
         p.noStroke()
         p.fill(p.random(100, 255))
 
-        const variation = 0.05
+        const baseVariation = 0.05
+        const variation = baseVariation + (staleForXFrames * 0.001)
 
-        const sz = p.random(variation * 0.2, p.width * variation * 0.8)
+        const sz = p.random(baseVariation * 0.2, p.width * baseVariation * 0.8)
 
         const x = p.mouseX + p.random(-p.width * variation, p.width * variation)
         const y = p.mouseY + p.random(-p.height * variation, p.height * variation)
@@ -143,11 +157,87 @@ function mouseFollow(p: p5) {
     }
 }
 
+function fractalTree(p: p5) {
+    commonSketch(p, (isReduced) => {
+        p.strokeWeight(2)
+        if (!isReduced) {
+            p.frameRate(5)
+        }
+        
+        return isReduced ? 20 : 8
+    })
+
+    type Branch = {origin: p5.Vector, radius: number, length: number};
+
+    function numberOfBranches(): number {
+        return p.random(2, 5)
+    }
+
+    const MAX_BRANCHES = 3000;
+    let BASE_LENGTH = p.width;
+    
+    function makeBranch(origin: p5.Vector, radius: number, length: number): Branch {
+        return {
+            origin,
+            radius,
+            length
+        }
+    }
+
+    function drawBranch(branch: Branch) {
+        const endX = branch.origin.x + Math.cos(branch.radius) * branch.length
+        const endY = branch.origin.y + Math.sin(branch.radius) * branch.length
+
+        // Move from topLeft to center
+        const centerOffsetX = p.width / 2
+        const centerOffsetY = p.height / 2
+
+        p.line(branch.origin.x + centerOffsetX, branch.origin.y + centerOffsetY, endX + centerOffsetX, endY + centerOffsetY)
+    }
+
+    let latestBranches: Branch[] = [
+        {origin: p.createVector(), radius: p.random(0, Math.PI * 2), length: BASE_LENGTH}
+    ]
+
+    p.draw = () => {
+        BASE_LENGTH = p.width / 20
+
+        let newBranches: Branch[] = []
+        for (let branch of latestBranches){
+            const branchNumber = numberOfBranches()
+
+            for (let i = 0; i < branchNumber; i++) {
+                p.stroke(p.random(100, 255))
+                const newOrigin = p.createVector(
+                    branch.origin.x + Math.cos(branch.radius) * branch.length,
+                    branch.origin.y + Math.sin(branch.radius) * branch.length
+                )
+                const newLength = branch.length * p.random(1, 1.4)
+                const newRadius = branch.radius + p.random(-Math.PI / 6, Math.PI / 6)
+                const newBranch = makeBranch(newOrigin, newRadius, newLength)
+
+                drawBranch(newBranch)
+
+                newBranches.push(newBranch)
+            }
+        }
+
+        latestBranches = newBranches
+
+        if (latestBranches.length > MAX_BRANCHES) {
+            latestBranches = [
+                {origin: p.createVector(), radius: p.random(0, Math.PI * 2), length: BASE_LENGTH}
+            ]
+        }   
+    }
+}
+
 const sketches = [
     scribbledLines,
     bubbleDots,
     bubbleSquares,
-    mouseFollow
+    mouseFollow,
+    fractalTree
 ]
 
 let sketch: p5|null = null
