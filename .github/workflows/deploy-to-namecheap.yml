@@ -1,0 +1,48 @@
+name: Deploy to Namecheap
+
+on:
+  push:
+    branches: [gh-pages]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    name: Sync gh-pages to cPanel
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run remote deploy
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -euo pipefail
+
+            cd /home/louis1001/Documents/home_page
+            echo "====== Fetching main page ======"
+            git fetch origin gh-pages
+            git switch gh-pages
+            git reset --hard origin/gh-pages
+            rm -rf /home/louis1001/public_html/*
+            cp -r ./* /home/louis1001/public_html/
+
+            cd /home/louis1001/Documents/rpg-helper
+            echo "\n====== Fetching rpg-helper ======"
+            git fetch origin gh-pages
+            git switch gh-pages
+            git reset --hard origin/gh-pages
+            mkdir -p /home/louis1001/public_html/wander
+            rm -rf /home/louis1001/public_html/wander/*
+            cp -r ./* /home/louis1001/public_html/wander/
+
+            cd /home/louis1001/Documents/hangeul-practice
+            echo "\n====== Fetching hangeul practice ======"
+            git fetch origin gh-pages
+            git switch gh-pages
+            git reset --hard origin/gh-pages
+            mkdir -p /home/louis1001/public_html/hangeul
+            rm -rf /home/louis1001/public_html/hangeul/*
+            cp -r ./* /home/louis1001/public_html/hangeul/
