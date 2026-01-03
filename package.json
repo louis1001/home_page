@@ -8,7 +8,7 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"deploy": "vite build && gh-pages -d build",
+		"deploy": "vite build && mkdir -p build/.github/workflows && cp .github/workflows/deploy-to-namecheap.yml build/.github/workflows/ && gh-pages -d build --dotfiles",
 		"photos:preprocess": "node scripts/photos-preprocess.mjs",
 		"photos:preprocess:force": "node scripts/photos-preprocess.mjs --force",
 		"predev": "npm run photos:preprocess",
