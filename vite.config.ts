@@ -8,5 +8,8 @@ export default defineConfig({
 		enhancedImages(),
 		sveltekit(),
 		isoImport()
-	]
+	],
+	build: {
+		sourcemap: false,
+	}
 });

@@ -1,50 +1,47 @@
 <script lang="ts">
-  import Spinner from "$lib/components/global/spinner.svelte";
-import BiggerPicture, { type BiggerPictureInstance } from "bigger-picture";
+import Spinner from "$lib/components/global/spinner.svelte";
+import type { BiggerPictureInstance } from "bigger-picture";
 import "bigger-picture/scss";
+import { browser } from "$app/environment";
+import type { PageData } from "./$types";
 
-let previewUrls = $state([] as any[]);
-let isLoading = $state(true)
+type Photo = PageData["photos"][number];
 
-const imageModules = import.meta.glob(
-  '$lib/assets/photos/*.{jpeg,jpg}',
-  {
-    query: {
-      enhanced: true
-    }
-  }
-)
+const { data } = $props();
 
-let bp: BiggerPictureInstance
+const previewUrls: Photo[] = data?.photos ?? [];
+const isLoading = false;
+
+let BiggerPictureLib: typeof import("bigger-picture")["default"] | null = null;
+let bp: BiggerPictureInstance | null = null;
 
 $effect(() => {
-  (async function() {
-    let result = []
-    for (let entry in imageModules) {
-      let module = imageModules[entry]
+  if (!browser) return;
 
-      let imageModule = await module()
+  (async () => {
+    try {
+      if (!BiggerPictureLib) {
+        const mod = await import("bigger-picture");
+        BiggerPictureLib = mod.default;
+      }
 
-      result.push({
-        // @ts-ignore
-        fullImage: imageModule.default.img,
-        // @ts-ignore
-        enhanced: imageModule.default
-      })
+      if (!bp && BiggerPictureLib && previewUrls.length > 0) {
+        bp = BiggerPictureLib({
+          target: document.body
+        });
+      }
+    } catch (err) {
+      console.error("Failed to load BiggerPicture", err);
     }
-    previewUrls = result
-    isLoading = false
-    
-    bp = BiggerPicture({
-      target: document.body
-    });
-  })()
+  })();
 })
 
 function openGallery(e: Event) {
   e.preventDefault();
 
   let imageLinks = document.querySelectorAll("#photos .image-link")
+
+  if (!bp) return;
 
   bp.open({
     items: imageLinks,
@@ -73,11 +70,19 @@ function openGallery(e: Event) {
     href={obj.fullImage.src}
     onclick={openGallery}
     target="_blank"
-    data-img={obj.enhanced.sources.jpeg}
-    data-height={obj.fullImage.h}
-    data-width={obj.fullImage.w}
+    aria-label={obj.alt}
+    data-img={obj.fullImage.src}
+    data-height={obj.fullImage.h ?? obj.fullImage.height}
+    data-width={obj.fullImage.w ?? obj.fullImage.width}
   >
-    <enhanced:img src={obj.enhanced} alt="some alt text" sizes="(max-width:2160px) 800px, (max-width:1920px) 600px, (max-width:768px) 200px" />
+    <img
+      src={obj.display.src}
+      alt={obj.alt}
+      width={obj.display.w ?? undefined}
+      height={obj.display.h ?? undefined}
+      loading="lazy"
+      decoding="async"
+    />
   </a>
   {/each}
 </section>

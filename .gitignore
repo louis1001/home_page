@@ -6,6 +6,13 @@ node_modules
 /.svelte-kit
 /build
 
+# Generated photo assets (built by photos:preprocess; not tracked on main)
+/static/photos/preview/*
+/static/photos/original/*
+/static/photos/processed/*
+/static/photos/manifest.json
+/src/lib/assets/photos_processed/*
+
 # OS
 .DS_Store
 Thumbs.db
