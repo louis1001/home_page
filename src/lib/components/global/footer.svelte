@@ -1,4 +1,4 @@
-<footer><small>&copy; Copyright 2021-2024, louis1001</small></footer>
+<footer><small>&copy; Copyright 2021-2026, louis1001</small></footer>
 
 <style lang='sass'>
 footer
