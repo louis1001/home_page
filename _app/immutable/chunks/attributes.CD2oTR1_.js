@@ -1,1 +1,0 @@
-import{L as o,i as _}from"./runtime.hwqXt3Lg.js";function c(r,s,i,A){i=i==null?null:i+"";var f=r.__attributes??(r.__attributes={});_&&(f[s]=r.getAttribute(s),s==="src"||s==="href"||s==="srcset")||f[s]!==(f[s]=i)&&(s==="loading"&&(r[o]=i),i===null?r.removeAttribute(s):r.setAttribute(s,i))}export{c as s};
