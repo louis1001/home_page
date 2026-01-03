@@ -16,6 +16,48 @@ const QUALITY = 82;
 const args = new Set(process.argv.slice(2));
 const FORCE = args.has('--force');
 
+const FILENAME_FALLBACK = 'image';
+
+function stripDiacritics(value) {
+  return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function normalizeFilename(filename) {
+  const parsed = path.parse(filename);
+  const base = stripDiacritics(parsed.name)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const safeBase = base || FILENAME_FALLBACK;
+  const ext = parsed.ext.toLowerCase();
+  return `${safeBase}${ext}`;
+}
+
+async function fileExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function nextAvailableName(targetName, claimed, currentFile) {
+  const parsed = path.parse(targetName);
+  let candidate = targetName;
+  let suffix = 1;
+
+  while (
+    claimed.has(candidate) ||
+    (candidate !== currentFile && (await fileExists(path.join(PHOTOS_DIR, candidate))))
+  ) {
+    candidate = `${parsed.name}-${suffix}${parsed.ext}`;
+    suffix += 1;
+  }
+
+  return candidate;
+}
+
 async function readManifestSafe() {
   try {
     const contents = await fs.readFile(MANIFEST_PATH, 'utf-8');
@@ -61,6 +103,28 @@ async function ensureDir(dir) {
 async function readPhotos() {
   const entries = await fs.readdir(PHOTOS_DIR, { withFileTypes: true });
   return entries.filter((e) => e.isFile()).map((e) => e.name);
+}
+
+async function normalizePhotoFilenames(files) {
+  const normalized = [];
+  const claimed = new Set();
+
+  for (const file of files) {
+    const desired = normalizeFilename(file);
+    const finalName = await nextAvailableName(desired, claimed, file);
+    const srcPath = path.join(PHOTOS_DIR, file);
+    const destPath = path.join(PHOTOS_DIR, finalName);
+
+    if (file !== finalName) {
+      console.log(`[photos:preprocess] renaming ${file} -> ${finalName}`);
+      await fs.rename(srcPath, destPath);
+    }
+
+    claimed.add(finalName);
+    normalized.push(finalName);
+  }
+
+  return normalized;
 }
 
 function buildAlt(filename) {
@@ -119,8 +183,13 @@ async function main() {
 
   const photos = await readPhotos();
   console.log(`[photos:preprocess] found ${photos.length} files`);
+  const normalizedPhotos = await normalizePhotoFilenames(photos);
 
-  if (!FORCE && (await outputsAreCurrent(photos))) {
+  if (normalizedPhotos.length) {
+    console.log('[photos:preprocess] filenames normalized');
+  }
+
+  if (!FORCE && (await outputsAreCurrent(normalizedPhotos))) {
     console.log('[photos:preprocess] outputs current; skipping');
     return;
   }
@@ -134,7 +203,7 @@ async function main() {
   await ensureDir(path.join(STATIC_DIR, 'original'));
 
   const manifest = [];
-  for (const file of photos) {
+  for (const file of normalizedPhotos) {
     console.log(`[photos:preprocess] processing ${file}`);
     const record = await processPhoto(file);
     await copyOriginal(file);
