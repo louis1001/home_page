@@ -19,7 +19,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          debug: true
           script: |
             set -euo pipefail
 
