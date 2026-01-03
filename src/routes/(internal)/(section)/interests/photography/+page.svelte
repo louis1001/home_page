@@ -1,4 +1,5 @@
 <script lang="ts">
+import GlassFrame from "$lib/components/global/glass_frame.svelte";
 import Spinner from "$lib/components/global/spinner.svelte";
 import type { BiggerPictureInstance } from "bigger-picture";
 import "bigger-picture/scss";
@@ -52,14 +53,16 @@ function openGallery(e: Event) {
 
 <h1>Photography</h1>
 
-<p>
-  Mid 2024, I got a Nikon D3400 for myself. Photography has always been one of
-  those "I wish I could do that" type of hobbies. For a while I had been experimenting with my
-  iPhone 14 Pro, which has a pretty good camera by today's standards; but it still didn't feel
-  like the real thing. I wanted an interchangable-lens type of camera.
-</p>
+<GlassFrame class="blurb">
+  <p>
+    Mid 2024, I got a Nikon D3400 for myself. Photography has always been one of
+    those "I wish I could do that" type of hobbies. For a while I had been experimenting with my
+    iPhone 14 Pro, which has a pretty good camera by today's standards; but it still didn't feel
+    like the real thing. I wanted an interchangable-lens type of camera.
+  </p>
 
-<p>Now that I have it, here are my experiments.</p>
+  <p>Now that I have it, here are my experiments.</p>
+</GlassFrame>
 
 <Spinner isLoading={isLoading} />
 
@@ -88,8 +91,11 @@ function openGallery(e: Event) {
 </section>
 
 <style lang='sass'>
+:global(.blurb) p:last-child
+  margin-bottom: 0
+  
 #photos
-  --layout-gaps: .8rem
+  --layout-gaps: 1rem
   display: grid
   grid-template-columns: repeat(4, 1fr)
   gap: var(--layout-gaps)
@@ -99,16 +105,12 @@ function openGallery(e: Event) {
   width: 100%
   height: auto
   aspect-ratio: 1 / 1
+  border-radius: var(--regular-radius)
 
   object-fit: cover
 
   transition: .1s ease-in-out transform
   cursor: pointer
-
-  // Polaroid effect
-  box-sizing: border-box
-  background: white
-  border-color: var(--main-col)
 
   &:hover
     transform: scale(1.05)

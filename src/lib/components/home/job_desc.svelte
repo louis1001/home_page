@@ -18,14 +18,17 @@
 <style lang='sass'>
 #job-desc
   position: fixed
-  left: 10px
-  top: 50px
+  left: var(--padding-lg)
+  top: calc(var(--nav-bar-height) + var(--padding-md) * 2)
   font-size: 0.9rem
   max-width: 285px
-  background: rgb(27, 27, 30)
-  box-shadow: 5px 5px 0 1px #0001
-  border-radius: 8px
-  padding: 10px
+  backdrop-filter: var(--glass-blur-filter)
+  border: 1px solid var(--glass-border-col)
+  box-shadow: var(--glass-box-shadow)
+
+  background-color: var(--glass-bg-col)
+  border-radius: var(--regular-radius)
+  padding: var(--padding-sm)
 
   &>*
     display: block
@@ -55,7 +58,7 @@
     color: var(--sec-heading-darker-col)
 
   .job-sec
-    margin-top: 10px
+    margin-top: var(--padding-sm)
 
     &:first-child
       margin-top: 0

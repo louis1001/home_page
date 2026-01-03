@@ -23,8 +23,13 @@ nav
   display: flex
   justify-content: space-between
   align-items: center
-  backdrop-filter: blur(4px)
+  backdrop-filter: var(--glass-blur-filter)
+  background-color: var(--glass-bg-col)
+  border: 1px solid var(--glass-border-col)
+  box-shadow: var(--glass-box-shadow)
   z-index: 998
+  margin: var(--padding-md) var(--padding-lg)
+  border-radius: var(--regular-radius)
 
   ul
     max-width: 1500px
@@ -40,7 +45,7 @@ nav
 
   #my-name
     font-family: 'Amaranth', sans-serif
-    color: var(--heading-col)
+    color: var(--main-col)
     padding-left: 10px
 
 @media screen and (max-width: 720px)
